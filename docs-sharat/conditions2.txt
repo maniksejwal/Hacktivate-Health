@@ -1,0 +1,38 @@
+1  CONGENTIAL OR GENETIC HISTORY
+a. Malformations/Deformities
+b. Blood Diseases
+c. Multiple Births
+d. Other
+2. PSYCHOSOCIAL HISTORY
+a. Learning Disabilities
+b. Psychosis
+c. Alcohol/Substance Abuse
+d. Other
+3. CHRONIC DISEASES
+a. Neurological
+b. Pulmonary (lungs)
+c. Renal (kidney)
+d. Immune
+e. Cancer
+f. Hypertension
+g. Diabetes
+h. Arteriosclerosis
+i. Other
+4. INFECTIOUS DISEASES
+a. Venereal
+b. Hepatitis
+c. Tuberculosis
+d. Other
+5. ALLERGIES
+6. PREGNANCY/BIRTH HISTORY
+a. Toxemia
+b. Miscarriages
+c. Neonatal Deaths
+d. Alcohol/Drug Exposure
+e. Isoimmune
+f. Hypoxia
+g. Prematurity
+h. Complications of Delivery
+i. Other
+j. Newborn Screening Disorders
+k. Birth Weight, Length, and APGAR Scores

@@ -1,0 +1,50 @@
+ Alcohol 
+ Anemia 
+ Arthritis 
+ Asthma 
+ Back Problems 
+ Cancer 
+ Chicken Pox 
+ Colitis 
+ Convulsions/Seizures 
+ Cough (Chronic) 
+ Depression 
+ Diabetes 
+ Disability/Handicapped 
+ Drug Abuse 
+ Ear Trouble /Hearing Loss 
+ Eating Disorder 
+ Eye Disease/Problems 
+ Gallbladder Trouble 
+ Hay Fever (Recurrent) 
+ Head Injury 
+ Headache (Recurrent) 
+ Heart Disease/Problem 
+ Hepatitis/Jaundice 
+ Hernia /Rupture 
+ High Blood Pressure 
+ intestinal/stomach Trouble 
+ Joint Disease/Injury
+ Measles, Red
+ Migraine Headaches
+ Mononucleosis, Infectious
+ Mumps
+ Other
+ Paralysis
+ Pneumonia
+ Polio
+ Psychological Counseling
+ Rheumatic Fever
+ Rubella (3 Day Measles)
+ Scarlet Fever
+ Sexually Transmitted Disease (STDS)
+ Sickle Cell Trait/Anemia
+ Sinus Trouble
+ Skin Problems (Chronic)
+ Sleep Problems
+ Smoking (How long?)
+ Suicide Attempt
+ Surgery
+ Thyroid Disease
+ Tuberculosis
+ Urinary Tract Infection
