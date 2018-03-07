@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">HealthApp</string>
+    <string name="med_con">Medical conditions</string>
+    <string name="medic">Medications</string>
+    <string name="rec">Recurring pain/injuries</string>
+    <string name="allergies">Allergies</string>
+    <string name="fam_his">Family history</string>
+    <string name="add">Add</string>
+
 </resources>

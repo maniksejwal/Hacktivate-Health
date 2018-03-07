@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="form">
+        <item>Name</item>
+        <item>Location</item>
+        <item>Date of Birth</item>
+        <item>Phone Number</item>
+        <item>Emergency Contact's name</item>
+        <item>Emergency Contact's phone number</item>
+        <item>Blood grour</item>
+    </string-array>
+
+</resources>

@@ -49,12 +49,15 @@ public class MainActivity extends AppCompatActivity {
 
             // Successfully signed in
             if (resultCode == RESULT_OK) {
-                Toast.makeText(this, "Signed in!", Toast.LENGTH_SHORT).show();                finish();
+                Toast.makeText(this, "Signed in!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, FormActivity.class));
+                finish();
             } else {
                 // Sign in failed
                 if (response == null) {
                     // User pressed back button
-                    Toast.makeText(this, "Sign in canceled", Toast.LENGTH_SHORT).show();                    return;
+                    Toast.makeText(this, "Sign in canceled", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
                 if (response.getError().getErrorCode() == ErrorCodes.NO_NETWORK) {
