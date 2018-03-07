@@ -5,23 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="16dp"
     tools:context="com.thetrooper.health.healthapp.FormActivity">
 
     <ListView
         android:id="@+id/details"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </ListView>
+        android:layout_margin="8dp"
+        android:divider="@null"
+        android:layout_height="wrap_content" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/form_done_FAB"
         android:layout_width="match_parent"
-        android:layout_alignParentEnd="true"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_action_done"
         android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content">
-
-    </android.support.design.widget.FloatingActionButton>
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp" />
 
 </RelativeLayout>

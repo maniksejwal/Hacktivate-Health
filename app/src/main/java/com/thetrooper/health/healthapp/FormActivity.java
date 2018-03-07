@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -18,18 +20,28 @@ import com.thetrooper.health.healthapp.Chat.ChatActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
+import timber.log.Timber;
 
 public class FormActivity extends AppCompatActivity {
     int form = 0;
     private DatabaseReference mDatabaseReference;
-    ArrayList<Item> list;
+    ListView listView;
+    ArrayList<String> list;
     MyAdapter adapter;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.form_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.add:
-                adapter.add(new Item(""));
+                adapter.add(new String(""));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -43,46 +55,40 @@ public class FormActivity extends AppCompatActivity {
 
         setupFirebase();
 
-        setList();
-        adapter = new MyAdapter(this, list);
-        final ListView listView = findViewById(R.id.details);
-        listView.setAdapter(adapter);
+        setAdapter();
 
         findViewById(R.id.form_done_FAB).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String key;
+                Timber.i("list.size() = " + list.size());
+                Timber.i("listView.getChildCount()" + listView.getChildCount());
                 switch (form) {
                     case 0:
-                        key = "details";
                         for (int i = 0; i < list.size(); i++)
-                            mDatabaseReference.child("user/abc/" + key + "/" + list.get(i).title)
-                                    .setValue(((EditText) listView.getChildAt(i)).getText().toString());
+                            if (listView.getChildAt(i) != null)
+                                mDatabaseReference.child("user/abc/details/" + list.get(i))
+                                        .setValue(((EditText) listView.getChildAt(i)).getText().toString());
                         break;
                     case 1:
-                        key = "medical conditions";
+                        for (int i = 0; i < list.size(); i++)
+                            if (listView.getChildAt(i) != null)
+                                mDatabaseReference.child("user/abc/medical conditions/" + list.get(i))
+                                        .setValue(((CheckBox) listView.getChildAt(i)).isChecked());
                         break;
                     case 2:
-                        key = "medications";
-                        break;
-                    case 3:
-                        key = "recurring pain and injuries";
-                        break;
-                    case 4:
-                        key = "allergies";
-                        break;
-                    case 5:
-                        key = "family history";
-                        break;
+                        for (int i = 0; i < list.size(); i++)
+                            if (listView.getChildAt(i) != null)
+                                mDatabaseReference.child("user/abc/family history/" + list.get(i))
+                                        .setValue(((CheckBox) listView.getChildAt(i)).isChecked());
+
+                        startActivity(new Intent(getApplicationContext(), ChatActivity.class));
+                        finish();
+                        return;
                     default:
                         throw new RuntimeException("invalid form");
                 }
-                for (int i = 0; i < list.size(); i++) {
-                    mDatabaseReference.child("user/abc/" + key + "/" + list.get(i).title).push()
-                            .setValue(((EditText) listView.getChildAt(i)).getText().toString());
-                    //TODO: use the users name/id
-                }
-                startActivity(new Intent(getApplicationContext(), ChatActivity.class));
+                form++;
+                setAdapter();
             }
         });
     }
@@ -91,64 +97,63 @@ public class FormActivity extends AppCompatActivity {
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
     }
 
-    private void setList() {
+    private void setAdapter() {
+        list = null;
         list = new ArrayList<>();
-        if (form == 0) {
-            for (String string : Arrays.asList(getResources().getStringArray(R.array.form)))
-                list.add(new Item(string));
-        } else {
-            switch (form) {
-                case 1:
-                    setTitle(R.string.med_con);
-                    break;
-                case 2:
-                    setTitle(R.string.medic);
-                    break;
-                case 3:
-                    setTitle(R.string.rec);
-                    break;
-                case 4:
-                    setTitle(R.string.allergies);
-                    break;
-                case 5:
-                    setTitle(R.string.fam_his);
-                    break;
-            }
-
+        List<java.lang.String> stringList;
+        switch (form) {
+            case 0:
+                setTitle(R.string.details);
+                stringList = Arrays.asList(getResources().getStringArray(R.array.form_details));
+                break;
+            case 1:
+                setTitle(R.string.med_con);
+                stringList = Arrays.asList(getResources().getStringArray(R.array.form_med_con));
+                break;
+            case 2:
+                setTitle(R.string.fam_his);
+                stringList = Arrays.asList(getResources().getStringArray(R.array.form_fam_his));
+                break;
+            default:
+                throw new RuntimeException("invalid form");
         }
+        list.addAll(stringList);
+
+        adapter = new MyAdapter(this, list);
+        listView = findViewById(R.id.details);
+        listView.setAdapter(adapter);
     }
 
-    private class Item {
-        String title;
-        String value;
+    private class MyAdapter extends ArrayAdapter<String> {
 
-        Item(String title) {
-            this.title = title;
-        }
-    }
-
-    private class MyAdapter extends ArrayAdapter<Item> {
-
-        MyAdapter(Activity context, ArrayList<Item> items) {
+        MyAdapter(Activity context, ArrayList<String> items) {
             super(context, 0, items);
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View listItemView = convertView;
-            if (listItemView == null) {
-                listItemView = LayoutInflater.from(getContext()).inflate(R.layout.form_item,
-                        parent, false);
+        public View getView(int position, View listItemView, ViewGroup parent) {
+            switch (form) {
+                case 0:
+                    if (listItemView == null) listItemView = LayoutInflater.from(getContext())
+                            .inflate(R.layout.item_form_edit_text, parent, false);
+                    ((EditText) listItemView).setHint(getItem(position));
+                    break;
+                case 1:
+                    if (listItemView == null) listItemView = LayoutInflater.from(getContext())
+                            .inflate(R.layout.item_form_checkbox, parent, false);
+                    ((CheckBox) listItemView).setText(getItem(position));
+                    break;
+                case 2:
+                    if (listItemView == null) listItemView = LayoutInflater.from(getContext())
+                            .inflate(R.layout.item_form_checkbox, parent, false);
+                    ((CheckBox) listItemView).setText(getItem(position));
+                    break;
             }
-
-            EditText view = listItemView.findViewById(R.id.text);
-            view.setHint(getItem(position).title);
 
             return listItemView;
         }
     }
 }
-
 //TODO: medical conditions
 //TODO: medications
 //TODO: recurring pain/injuries

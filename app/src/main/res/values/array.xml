@@ -1,13 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="form">
+    <string-array name="form_details">
         <item>Name</item>
         <item>Location</item>
         <item>Date of Birth</item>
         <item>Phone Number</item>
-        <item>Emergency Contact's name</item>
-        <item>Emergency Contact's phone number</item>
-        <item>Blood grour</item>
+        <item>Emergency Contact</item>
+        <item>Emergency Phone Number</item>
+        <item>Blood Group</item>
+    </string-array>
+
+    <string-array name="form_fam_his">
+        <item>Malformations or Deformities</item>
+        <item>Blood Diseases</item>
+        <item>Multiple Births</item>
+        <item>Learning Disabilities</item>
+        <item>Psychosis</item>
+        <item>Alcohol or Substance Abuse</item>
+        <item>Other</item>
+        <item>Neurological</item>
+        <item>Pulmonary (lungs)</item>
+        <item>Renal (kidney)</item>
+        <item>Immune</item>
+        <item>Cancer</item>
+        <item>Hypertension</item>
+        <item>Diabetes</item>
+        <item>Arteriosclerosis</item>
+        <item>Other</item>
+        <item>Venereal</item>
+        <item>Hepatitis</item>
+        <item>Tuberculosis</item>
+        <item>Other</item>
+        <item>Toxemia</item>
+        <item>Miscarriages</item>
+        <item>Neonatal Deaths</item>
+        <item>Alcohol or Drug Exposure</item>
+        <item>Isoimmune</item>
+        <item>Hypoxia</item>
+        <item>Prematurity</item>
+        <item>Complications of Delivery</item>
+        <item>Newborn Screening Disorders</item>
+    </string-array>
+
+    <string-array name="form_med_con">
+        <item>Alcohol</item>
+        <item>Anemia</item>
+        <item>Arthritis</item>
+        <item>Asthma</item>
+        <item>Back Problems</item>
+        <item>Cancer</item>
+        <item>Chicken Pox</item>
+        <item>Colitis</item>
+        <item>Convulsions or Seizures</item>
+        <item>Cough (Chronic)</item>
+        <item>Depression</item>
+        <item>Diabetes</item>
+        <item>Disability or Handicapped</item>
+        <item>Drug Abuse</item>
+        <item>Ear Trouble or Hearing Loss</item>
+        <item>Eating Disorder</item>
+        <item>Eye Disease or Problems</item>
+        <item>Gallbladder Trouble</item>
+        <item>Hay Fever (Recurrent)</item>
+        <item>Head Injury</item>
+        <item>Headache (Recurrent)</item>
+        <item>Heart Disease/Problem</item>
+        <item>Hepatitis or Jaundice</item>
+        <item>Hernia or Rupture</item>
+        <item>High Blood Pressure</item>
+        <item>Intestinal or Stomach Trouble</item>
+        <item>Joint Disease or Injury</item>
+        <item>Measles, Red</item>
+        <item>Migraine Headache</item>
+        <item>Mononucleosis, Infectious</item>
+        <item>Mumps</item>
+        <item>Paralysis</item>
+        <item>Pneumonia</item>
+        <item>Polio</item>
+        <item>Psychological Counseling</item>
+        <item>Rheumatic Fever</item>
+        <item>Rubella (3 Day Measles</item>
+        <item>Scarlet Fever</item>
+        <item>Sexually Transmitted Disease (STDS)</item>
+        <item>Sickle Cell Trait or Anemia</item>
+        <item>Sinus Trouble</item>
+        <item>Skin Problems (Chronic)</item>
+        <item>Sleep Problem</item>
+        <item>Smoking (How long?)</item>
+        <item>Suicide Attempt</item>
+        <item>Surgery</item>
+        <item>Thyroid Disease</item>
+        <item>Tuberculosis</item>
+        <item>Urinary Tract Infection</item>
     </string-array>
 
 </resources>
