@@ -3,7 +3,6 @@ package com.thetrooper.health.healthapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -41,8 +40,6 @@ public class FormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
-        if (!PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
-                .getBoolean("firstStart", true)) startNextActivity();
 
         setupFirebase();
 
@@ -85,14 +82,9 @@ public class FormActivity extends AppCompatActivity {
                             .setValue(((EditText) listView.getChildAt(i)).getText().toString());
                     //TODO: use the users name/id
                 }
-                startNextActivity();
+                startActivity(new Intent(getApplicationContext(), ChatActivity.class));
             }
         });
-    }
-
-    private void startNextActivity() {
-        Intent intent = new Intent(this, ChatActivity.class);
-        startActivity(intent);
     }
 
     private void setupFirebase() {
