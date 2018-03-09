@@ -6,6 +6,8 @@
 **Carna: The health predictor and assistant** is a project that was made during Hacktivate, a 24 hours long hackathon conducted by BVP IEEE.
 The application is made to analyse current health care situation and trends at a place and determine future course of action.
 It uses a chat bot that is used to update  the database.
+
+The backend code is stored in the branch master-backend
 * Link – 
 * Version
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
