@@ -1,11 +1,9 @@
-# Hacktivate-Health
-
 # README #
 
 ### What is this repository for? ###
 
 * Quick summary-
-Carna: The health predictor and assistant.
+**Carna: The health predictor and assistant** is my project that was made during Hacktivate, a 24 hours long hackathon conducted by BVP IEEE.
 * Link – 
 * Version
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
